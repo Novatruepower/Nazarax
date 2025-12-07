@@ -3,15 +3,15 @@ export const API = {
     urlParams : new URLSearchParams(window.location.search),
 
     getParams: function() {
-        if (urlParams.size < 1) 
+        if (this.urlParams.size < 1) 
             return "";
         
-        let chaine = `?${urlParams[0]}`
+        let chaine = `?${this.urlParams[0]}`
 
-        if (urlParams.size == 1) 
+        if (this.urlParams.size == 1) 
             return chaine;
 
-        const paramsEntries = urlParams.entries();
+        const paramsEntries = this.urlParams.entries();
         for (const [key, value] of paramsEntries) {
             chaine += `&${key}=${value}}`;
         }
