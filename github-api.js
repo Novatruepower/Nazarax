@@ -1,6 +1,7 @@
+const repositoryData = window.location.href.split(".github.io/", 2);
+const connectionData = repositoryData[0].split("://", 2);
+
 export const API = {
-    repositoryData: window.location.href.split(".github.io/", 2),
-    connectionData: repositoryData[0].split("://", 2),
     repoOwner: connectionData[1],
     repoName: repositoryData[1],
     urlParams : new URLSearchParams(window.location.search),
@@ -61,7 +62,7 @@ export const API = {
             const pathsnames = window.location.pathname.substring(1, window.location.pathname.length).split("/", 2);
             if (pathsnames.length >= 2) {
                 this.urlParams.delete("endpoint", pathsnames[1]);
-                this.redirectToUrl(`${pathsnames[0]}${pathsnames[1]}${this.getParams()}`, this.startEndpoint);
+                this.redirectToUrl(`${pathsnames[0]}${pathsnames[1]}`, this.startEndpoint);
             }
         }
     }
