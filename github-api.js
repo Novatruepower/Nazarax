@@ -1,10 +1,11 @@
 const repositoryData = window.location.href.split(".github.io/", 2);
+const connectionData = repositoryData[0].split("://", 2);
 
 export const API = {
-    repoOwner: repositoryData[0].split("https://", 2)[1],
+    repoOwner: connectionData[1],
     repoName: repositoryData[1],
     urlParams : new URLSearchParams(window.location.search),
-    startEndpoint: function() {return `https://${repoOwner}.github.io/`},
+    startEndpoint: function() {return `${connectionData[0]}://${repoOwner}.github.io/`},
 
     getParams: function() {
         const urlParams = this.urlParams;
