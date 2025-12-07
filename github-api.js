@@ -6,7 +6,7 @@ export const API = {
         console.log(this.endpoint);
         const refresh = document.createElement("meta");
         refresh.httpEquiv = "refresh";
-        const url = `${this.endpoint}/`;
+        const url = `${this.endpoint}`;
         refresh.content= `0; URL=${url}`;
         const canonical = document.createElement("link");
         canonical.rel = "canonical";
