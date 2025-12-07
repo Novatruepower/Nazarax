@@ -9,6 +9,7 @@ export const API = {
         const paramsEntries = this.urlParams.entries();
         const [firstEntry] = paramsEntries;
         let chaine = `?${firstEntry[0]}=${firstEntry[1]}}`
+        paramsEntries.delete(firstEntry[0], firstEntry[1]);
 
         for (const [key, value] of paramsEntries) {
             chaine += `&${key}=${value}`;
