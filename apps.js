@@ -1,1 +1,0 @@
-history.pushState("", "rip", "https://novatruepower.github.io/Nazarax/");
