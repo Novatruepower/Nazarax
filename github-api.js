@@ -7,8 +7,8 @@ export const API = {
         refresh.httpEquiv = "refresh";
         const url = `${this.endpoint}`;
         const pathsnames = window.location.pathname.split("/");
-        refresh.content= `0; URL=${url}${pathsnames[0]}${pathsnames[1]}`;
-        console.log(refresh.content);
+       // refresh.content= `0; URL=${url}${pathsnames[0]}${pathsnames[1]}`;
+        console.log(window.location.pathname);
         //const canonical = document.createElement("link");
        // canonical.rel = "canonical";
        // canonical.href = url;
