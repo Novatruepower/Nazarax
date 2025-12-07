@@ -7,7 +7,10 @@ export const API = {
             return "";
         
         const paramsEntries = this.urlParams.entries();
-        console.log(this.urlParams.keys());
+        for (const key of this.urlParams.keys()) {
+            console.log(key);
+        }
+
         let entry = paramsEntries.next();
         let chaine = "";
 
