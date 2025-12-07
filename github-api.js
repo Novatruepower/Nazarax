@@ -16,9 +16,12 @@ export const API = {
             const value = entry.value;
 
             if (value) {
+                console.log(value);
                 chaine += `&${value[0]}=${value[1]}`;
             }
         }
+
+        console.log(chaine);
 
         return chaine;
     },
