@@ -6,14 +6,14 @@ export const API = {
         if (this.urlParams.size < 1) 
             return "";
         
-        let chaine = `?${this.urlParams[0]}`
+        const paramsEntries = this.urlParams.entries();
+        let chaine = `?${paramsEntries[0].join("=")}`
 
         if (this.urlParams.size == 1) 
             return chaine;
 
-        const paramsEntries = this.urlParams.entries();
         for (const [key, value] of paramsEntries) {
-            chaine += `&${key}=${value}}`;
+            chaine += `&${key}=${value}`;
         }
 
         return chaine;
