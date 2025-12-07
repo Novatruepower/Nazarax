@@ -13,8 +13,11 @@ export const API = {
 
         while (!entry.done) {
             entry = paramsEntries.next();
-            console.log(entry.value);
-            chaine += `&${entry.value[0]}=${entry.value[1]}`;
+            const value = entry.value;
+
+            if (value) {
+                chaine += `&${value[0]}=${value[1]}`;
+            }
         }
 
         return chaine;
