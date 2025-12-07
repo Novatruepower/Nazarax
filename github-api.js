@@ -6,10 +6,10 @@ export const API = {
         //const refresh = document.createElement("meta");
         //refresh.httpEquiv = "refresh";
         const url = `${this.endpoint}`;
-        const pathsnames = window.location.pathname.split("/");
+        const pathsnames = window.location.pathname.split("/", 3);
        // refresh.content= `0; URL=${url}`;
         console.log(url);
-        console.log(window.location.pathname);
+        console.log(pathsnames);
         //const canonical = document.createElement("link");
        // canonical.rel = "canonical";
        // canonical.href = url;
