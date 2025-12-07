@@ -56,7 +56,8 @@
     // 1. redirect if URL has parameters (your existing logic)
     if (window.location.search.includes("endpoint")) {
         console.log(window.location.search);
-      //  API.redirectToRelativeEndPoint(window.location.search['endpoint']);
+        API.redirectToRelativeEndPoint(window.location.search['endpoint']);
+        return;
     }
 
     // 2. auto-fetch folders from GitHub
