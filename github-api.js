@@ -12,11 +12,12 @@ export const API = {
         let chaine = "";
 
         if (entry) {
-            if (entry[0])
+            if (entry[0]) {
                 chaine += `?${entry[0]}`;
 
-            if (entry[1])
-                chaine += `=${entry[1]}`;
+                if (entry[1])
+                    chaine += `=${entry[1]}`;
+            }
         }
 
         while (!entry.done) {
@@ -25,11 +26,12 @@ export const API = {
 
             if (value) {
                 console.log(value);
-                if (value[0])
+                if (value[0]) {
                     chaine += `&${value[0]}`;
 
-                if (value[1])
-                    chaine += `=${value[1]}`;
+                    if (value[1])
+                        chaine += `=${value[1]}`;
+                }
             }
         }
 
