@@ -8,7 +8,7 @@ export const API = {
             return "";
         
         const paramsEntries = this.urlParams.entries();
-        let entry = paramsEntries.next();
+        let entry = paramsEntries.return();
         let chaine = "";
 
         if (entry) {
