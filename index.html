@@ -10,8 +10,8 @@
     import { API } from './github-api.js';
     const length = window.location.search.length;
     if (length > 1) {
-        let currentGetURL = window.location.search.substring(1, length);
-        currentGetURL = currentGetURL[0].toUpperCase() + currentGetURL.slice(1, length - 1);
-        API.redirectToRelativeEndPoint(currentGetURL);
+        //let currentGetURL = window.location.search.substring(1, length);
+        //currentGetURL = currentGetURL[0].toUpperCase() + currentGetURL.slice(1, length - 1);
+        API.redirectToRelativeEndPoint("Craft");
     }
 </script>
