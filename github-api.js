@@ -9,7 +9,15 @@ export const API = {
         
         const paramsEntries = this.urlParams.entries();
         let entry = paramsEntries.next();
-        let chaine = `?${entry[0]}=${entry[1]}}`;
+        let chaine = "";
+
+        if (entry) {
+            if (entry[0])
+                chaine += `?${entry[0]}`;
+
+            if (entry[1])
+                chaine += `=${entry[1]}`;
+        }
 
         while (!entry.done) {
             entry = paramsEntries.next();
@@ -17,7 +25,11 @@ export const API = {
 
             if (value) {
                 console.log(value);
-                chaine += `&${value[0]}=${value[1]}`;
+                if (value[0])
+                    chaine += `&${value[0]}`;
+
+                if (value[1])
+                    chaine += `=${value[1]}`;
             }
         }
 
