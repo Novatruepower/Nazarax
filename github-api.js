@@ -13,8 +13,8 @@ export const API = {
         document.head.appendChild(canonical);
     },
 
-    redirectToEndPoint: function(endpoint) {
-        this.redirectToUrl(`/${endpoint}/`, this.startEndpoint);
+    redirectToRelativeEndPoint: function(endpoint) {
+        this.redirectToUrl(`./${endpoint}/`, this.startEndpoint);
     },
 
     redirectToFolderEndPoint: function() {

@@ -12,6 +12,6 @@
     if (length > 1) {
         let currentGetURL = window.location.search.substring(1, length);
         currentGetURL = currentGetURL[0].toUpperCase() + currentGetURL.slice(1, length - 1);
-        API.redirectToEndPoint(currentGetURL);
+        API.redirectToRelativeEndPoint(currentGetURL);
     }
 </script>
