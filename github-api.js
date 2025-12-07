@@ -33,21 +33,19 @@ export const API = {
             data = paramsKeys.next();
         }
 
-        console.log(chaine);
-
         return chaine;
     },
 
     redirectToUrl: function(endpoint, startEndpoint = "") {
         const url = `${startEndpoint}${endpoint}`;
-        //const refresh = document.createElement("meta");
-        //refresh.httpEquiv = "refresh";
-       // refresh.content= `0; URL=${url}`;
-       // const canonical = document.createElement("link");
-      //  canonical.rel = "canonical";
-       // canonical.href = url;
-       // document.head.appendChild(refresh);
-        //document.head.appendChild(canonical);
+        const refresh = document.createElement("meta");
+        refresh.httpEquiv = "refresh";
+        refresh.content= `0; URL=${url}`;
+        const canonical = document.createElement("link");
+        canonical.rel = "canonical";
+        canonical.href = url;
+        document.head.appendChild(refresh);
+        document.head.appendChild(canonical);
     },
 
     redirectToRelativeEndPoint: function(endpoint) {
