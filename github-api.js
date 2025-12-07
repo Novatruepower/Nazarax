@@ -8,12 +8,12 @@ export const API = {
             return "";
         
         const paramsEntries = this.urlParams.entries();
-        const [firstEntry] = paramsEntries;
-        let chaine = `?${firstEntry[0]}=${firstEntry[1]}}`
-        paramsEntries.delete(firstEntry[0], firstEntry[1]);
+        let entry = paramsEntries.next();
+        let chaine = `?${entry[0]}=${entry[1]}}`;
 
-        for (const [key, value] of paramsEntries) {
-            chaine += `&${key}=${value}`;
+        while (!entry.done) {
+            entry = paramsEntries.next();
+            chaine += `&${entry.value[0]}=${entry.value[1]}`;
         }
 
         return chaine;
