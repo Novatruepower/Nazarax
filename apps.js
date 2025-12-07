@@ -1,1 +1,1 @@
-history.pushState("", "rip", "Sheet/index.html");
+history.pushState("", "rip", "https://novatruepower.github.io/Nazarax/");
