@@ -3,38 +3,30 @@ export const API = {
     urlParams : new URLSearchParams(window.location.search),
 
     getParams: function() {
-        if (this.urlParams.size < 1) 
+        const urlParams = this.urlParams;
+        const paramsLength = urlParams.size;
+        if (paramsLength < 1) 
             return "";
         
-        const paramsEntries = this.urlParams.entries();
-        for (const key of this.urlParams.keys()) {
-            console.log(key);
-        }
-
-        let entry = paramsEntries.next();
+        const paramsKeys = urlParams.keys();
         let chaine = "";
 
-        if (entry) {
-            if (entry[0]) {
-                chaine += `?${entry[0]}`;
+        for (const key of paramsKeys) {
+            chaine += `?${key}`;
+            const value = urlParams.get(key);
 
-                if (entry[1])
-                    chaine += `=${entry[1]}`;
-            }
+            if (value)
+                chaine += `=${value}`;
+            break;
         }
 
-        while (!entry.done) {
-            entry = paramsEntries.next();
-            const value = entry.value;
+        for (let index = 1; index < paramsLength; ++index) {
+            const key = paramsKeys[index];
+            chaine += `&${key}`;
+            const value = urlParams.get(key);
 
             if (value) {
-                console.log(value);
-                if (value[0]) {
-                    chaine += `&${value[0]}`;
-
-                    if (value[1])
-                        chaine += `=${value[1]}`;
-                }
+                chaine += `=${value}`;
             }
         }
 
