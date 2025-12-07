@@ -8,8 +8,7 @@ export const API = {
         
         const paramsEntries = this.urlParams.entries();
         const [firstEntry] = paramsEntries;
-        console.log(firstEntry);
-        let chaine = `?${paramsEntries[0].join("=")}`
+        let chaine = `?${firstEntry.join("=")}`
 
         if (this.urlParams.size == 1) 
             return chaine;
