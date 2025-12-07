@@ -13,6 +13,7 @@ export const API = {
 
         while (!entry.done) {
             entry = paramsEntries.next();
+            console.log(entry.value);
             chaine += `&${entry.value[0]}=${entry.value[1]}`;
         }
 
