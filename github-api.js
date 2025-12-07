@@ -20,14 +20,17 @@ export const API = {
             break;
         }
 
-        for (let index = 1; index < paramsLength; ++index) {
-            const key = paramsKeys[index];
+        let key = paramsKeys.next();
+        while (!key.done()) {
+            key = key.value;
             chaine += `&${key}`;
             const value = urlParams.get(key);
 
             if (value) {
                 chaine += `=${value}`;
             }
+
+            key = key.next();
         }
 
         console.log(chaine);
