@@ -21,7 +21,7 @@ export const API = {
     },
 
     redirectToUrl: function(endpoint, startEndpoint = "") {
-        const url = `${startEndpoint}${endpoint}${this.getParams()}`;
+        const url = `${startEndpoint}${endpoint}}`;
         const refresh = document.createElement("meta");
         refresh.httpEquiv = "refresh";
         refresh.content= `0; URL=${url}`;
