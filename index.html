@@ -6,19 +6,3 @@
     <li><a href="Sheet/index.html">Sheet</a></li>
 </ul>
 
-<script>
-    const length = window.location.search.length;
-    if (length > 1) {
-        let currentGetURL = window.location.search.substring(1, length);
-        currentGetURL = currentGetURL[0].toUpperCase() + currentGetURL.slice(1, length-1);
-        const refresh = document.createElement("meta");
-        refresh.httpEquiv = "refresh";
-        const url = `./${currentGetURL}/`;
-        refresh.content= `0; URL=${url}`;
-        const canonical = document.createElement("link");
-        canonical.rel = "canonical";
-        canonical.href = url;
-        document.body.appendChild(refresh);
-        document.body.appendChild(canonical);
-    }
-</script>
