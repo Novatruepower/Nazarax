@@ -55,6 +55,7 @@
 
     // 1. redirect if URL has parameters (your existing logic)
     if (window.location.search.includes("endpoint")) {
+        console.log(window.location.search);
         API.redirectToRelativeEndPoint(window.location.search['endpoint']);
     }
 
