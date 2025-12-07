@@ -3,12 +3,12 @@ export const API = {
     urlParams : new URLSearchParams(window.location.search),
 
     getParams: function() {
-        console.log(this.urlParams);
         if (this.urlParams.size < 1) 
             return "";
         
         const paramsEntries = this.urlParams.entries();
-        let entry = paramsEntries.return();
+        console.log(paramsEntries);
+        let entry = paramsEntries.next();
         let chaine = "";
 
         if (entry) {
