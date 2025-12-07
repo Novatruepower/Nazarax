@@ -5,15 +5,16 @@ export const API = {
         console.log(this.endpoint);
         //const refresh = document.createElement("meta");
         //refresh.httpEquiv = "refresh";
-        const url = `${this.endpoint}`;
-        const pathsnames = window.location.pathname.split("/", 3);
-       // refresh.content= `0; URL=${url}`;
-        console.log(url);
-        console.log(pathsnames);
-        //const canonical = document.createElement("link");
-       // canonical.rel = "canonical";
-       // canonical.href = url;
-       // document.head.appendChild(refresh);
-       // document.head.appendChild(canonical);
+        if (window.location.pathname.length > 1) {
+            const pathsnames = window.location.pathname.substring(1, window.location.pathname.length).split("/", 2);
+            const url = `${this.endpoint}/${pathsnames[0]}${pathsnames[1]}`;
+        // refresh.content= `0; URL=${url}`;
+            console.log(url);
+            //const canonical = document.createElement("link");
+        // canonical.rel = "canonical";
+        // canonical.href = url;
+        // document.head.appendChild(refresh);
+        // document.head.appendChild(canonical);
+        }
     }
 }
