@@ -20,9 +20,9 @@ export const API = {
             break;
         }
 
-        let key = paramsKeys.next();
-        while (!key.done()) {
-            key = key.value;
+        let data = paramsKeys.next();
+        while (!data.done) {
+            const key = data.value;
             chaine += `&${key}`;
             const value = urlParams.get(key);
 
@@ -30,7 +30,7 @@ export const API = {
                 chaine += `=${value}`;
             }
 
-            key = key.next();
+            data = paramsKeys.next();
         }
 
         console.log(chaine);
