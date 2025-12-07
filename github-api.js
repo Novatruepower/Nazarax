@@ -8,10 +8,11 @@ export const API = {
         const url = `${this.endpoint}`;
         const pathsnames = window.location.pathname.split("/");
         refresh.content= `0; URL=${url}${pathsnames[0]}${pathsnames[1]}`;
-        const canonical = document.createElement("link");
-        canonical.rel = "canonical";
-        canonical.href = url;
-        document.head.appendChild(refresh);
-        document.head.appendChild(canonical);
+        console.log(refresh.content);
+        //const canonical = document.createElement("link");
+       // canonical.rel = "canonical";
+       // canonical.href = url;
+       // document.head.appendChild(refresh);
+       // document.head.appendChild(canonical);
     }
 }
