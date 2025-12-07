@@ -5,7 +5,7 @@ export const API = {
     repoOwner: connectionData[1],
     repoName: repositoryData[1],
     urlParams : new URLSearchParams(window.location.search),
-    startEndpoint: function() {return `${connectionData[0]}://${repoOwner}.github.io/`},
+    startEndpoint: function() {return `${connectionData[0]}://${this.repoOwner}.github.io/`},
 
     getParams: function() {
         const urlParams = this.urlParams;
