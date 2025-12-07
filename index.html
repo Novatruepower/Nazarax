@@ -1,17 +1,92 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
 <meta charset="utf-8">
-<title>Redirection Usage</title>
-<ul>
-    <li><a href="Craft">Craft</a></li>
-    <li><a href="Sheet">Sheet</a></li>
-</ul>
+<title>Project Index</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f5f6fa;
+        margin: 0;
+        padding: 40px;
+    }
+    h1 {
+        text-align:center;
+        margin-bottom: 40px;
+        color: #333;
+    }
+    #folders {
+        max-width: 800px;
+        margin: 0 auto;
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    .item {
+        padding: 20px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        text-align: center;
+        font-size: 18px;
+        transition: transform .2s, box-shadow .2s;
+    }
+    .item:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    }
+    .item a {
+        text-decoration: none;
+        color: #0077cc;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+
+<h1>Available Sections</h1>
+
+<div id="folders">Loading…</div>
 
 <script type="module">
     import { API } from './github-api.js';
-    const length = window.location.search.length;
-    if (length > 1) {
-        //let currentGetURL = window.location.search.substring(1, length);
-        //currentGetURL = currentGetURL[0].toUpperCase() + currentGetURL.slice(1, length - 1);
-        API.redirectToRelativeEndPoint("");
+
+    // 1. redirect if URL has parameters (your existing logic)
+    if (window.location.search.includes("endpoint")) {
+        API.redirectToRelativeEndPoint(window.location.search['endpoint']);
     }
+
+    // 2. auto-fetch folders from GitHub
+    const list = document.getElementById("folders");
+
+    async function loadFolders() {
+        const url =
+          `https://api.github.com/repos/${API.repoOwner}/${API.repoName}/contents/`;
+
+        try {
+            const response = await fetch(url);
+            const data = await response.json();
+
+            list.innerHTML = "";
+
+            data
+            .filter(item => item.type === "dir")
+            .forEach(entry => {
+                const div = document.createElement("div");
+                div.className = "item";
+                div.innerHTML = `<a href="${entry.name}/">${entry.name}</a>`;
+                list.appendChild(div);
+            });
+
+        } catch (e) {
+            list.innerHTML = "Error loading folders.";
+        }
+    }
+
+    loadFolders();
 </script>
+
+</body>
+</html>
