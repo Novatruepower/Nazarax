@@ -8,10 +8,7 @@ export const API = {
         
         const paramsEntries = this.urlParams.entries();
         const [firstEntry] = paramsEntries;
-        let chaine = `?${firstEntry.join("=")}`
-
-        if (this.urlParams.size == 1) 
-            return chaine;
+        let chaine = `?${firstEntry[0]}=${firstEntry[1]}}`
 
         for (const [key, value] of paramsEntries) {
             chaine += `&${key}=${value}`;
@@ -21,7 +18,7 @@ export const API = {
     },
 
     redirectToUrl: function(endpoint, startEndpoint = "") {
-        const url = `${startEndpoint}${endpoint}}`;
+        const url = `${startEndpoint}${endpoint}${this.getParams()}`;
         const refresh = document.createElement("meta");
         refresh.httpEquiv = "refresh";
         refresh.content= `0; URL=${url}`;
