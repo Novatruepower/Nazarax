@@ -5,7 +5,7 @@ export const API = {
     redirectToEndPoint: function(endpoint) {
         const refresh = document.createElement("meta");
         refresh.httpEquiv = "refresh";
-        const url = `${startEndpoint}/${endpoint}/`;
+        const url = `${this.startEndpoint}/${endpoint}/`;
         refresh.content= `0; URL=${url}`;
         const canonical = document.createElement("link");
         canonical.rel = "canonical";
