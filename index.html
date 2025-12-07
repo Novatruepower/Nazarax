@@ -77,7 +77,7 @@
                 const div = document.createElement("div");
                 div.className = "item";
                 console.log(entry.name);
-                div.innerHTML = `<a href="${entry.name}/">${entry.name}</a>`;
+                div.innerHTML = `<a href="./${entry.name}/">${entry.name}</a>`;
                 list.appendChild(div);
             });
 
