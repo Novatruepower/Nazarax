@@ -65,6 +65,8 @@
         const url =
           `https://api.github.com/repos/${API.repoOwner}/${API.repoName}/contents/`;
 
+        console.log(url);
+
         try {
             const response = await fetch(url);
             const data = await response.json();
