@@ -55,6 +55,7 @@
 
     // 1. redirect if URL has parameters (your existing logic)
     if (API.urlParams.has("endpoint")) {
+        console.log(API.urlParams.get('endpoint'));
         API.redirectToRelativeEndPoint(API.urlParams.get('endpoint'));
     } else {
         // 2. auto-fetch folders from GitHub
