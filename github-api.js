@@ -1,6 +1,6 @@
 
 export const API = {
-    startEndpoint: window.location.href.split(".github.io/", 2)[0] + window.location.pathname + ".github.io/",
+    startEndpoint: window.location.href.split(".github.io/", 2)[0] + `.github.io/${window.location.pathname}`,
 
     redirectToEndPoint: function(endpoint) {
         const refresh = document.createElement("meta");
