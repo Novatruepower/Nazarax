@@ -56,7 +56,10 @@
     // 1. redirect if URL has parameters (your existing logic)
     if (API.urlParams.has("endpoint")) {
         console.log(API.urlParams.get('endpoint'));
-        //API.redirectToRelativeEndPoint(API.urlParams.get('endpoint'));
+        const endpoint = API.urlParams.get('endpoint');
+        const validEndpoint = endpoint[0].toUpperCase() + endpoint.substring(1, endpoint.length - 1);
+
+        API.redirectToRelativeEndPoint(validEndpoint);
     } else {
         // 2. auto-fetch folders from GitHub
         const list = document.getElementById("folders");
@@ -76,7 +79,6 @@
                     .forEach(entry => {
                         const div = document.createElement("div");
                         div.className = "item";
-                        console.log(entry.name);
                         div.innerHTML = `<a href="./${entry.name}/">${entry.name}</a>`;
                         list.appendChild(div);
                     });
