@@ -57,9 +57,8 @@
     if (API.urlParams.has("endpoint")) {
         console.log(API.urlParams.get('endpoint'));
         const endpoint = API.urlParams.get('endpoint');
-        const validEndpoint = endpoint[0].toUpperCase() + endpoint.substring(1, endpoint.length - 1);
-        console.log(validEndpoint);
-       // API.redirectToRelativeEndPoint(validEndpoint);
+        const validEndpoint = endpoint[0].toUpperCase() + endpoint.substring(1, endpoint.length);
+        API.redirectToRelativeEndPoint(validEndpoint);
     } else {
         // 2. auto-fetch folders from GitHub
         const list = document.getElementById("folders");
