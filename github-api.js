@@ -54,7 +54,7 @@ export const API = {
     },
 
     redirectToRelativeEndPoint: function(endpoint) {
-        this.redirectToUrl(`${endpoint}/`, "./");
+        this.redirectToUrl(`${endpoint}`, "./");
     },
 
     redirectToFolderEndPoint: function() {
